@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
-  background-color: gainsboro;
+  background-color: rgb(243, 243, 245);
   border-radius: 10px;
   transform: translateY(-50%);
   margin: 0 auto;
@@ -28,6 +28,7 @@
     width: 100%;
     margin: 0 auto;
     padding: 30px;
+    text-align: left;
   }
   .cardtext:not(:last-child) {
     border-right: 1px solid hsl(0, 0%, 59%);
