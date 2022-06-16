@@ -4,11 +4,16 @@
   width: 100%;
   background-color: rgb(243, 243, 245);
   border-radius: 10px;
-  transform: translateY(-50%);
+  /* transform: translateY(-50%); */
   margin: 0 auto;
   padding: 30px;
   text-align: center;
   max-width: 350px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%, -50%);
 }
 .cardtext.cardtext:not(:last-child) {
   padding-bottom: 13px;
@@ -20,6 +25,7 @@
 }
 .h2 {
   font-weight: 500;
+  font-size: 1em;
 }
 @media (min-width: 768px) {
   .card {
@@ -38,5 +44,8 @@
   }
   .ptext {
     padding-bottom: 10px;
+  }
+  .h2 {
+    font-size: 1.5em;
   }
 }

@@ -14,7 +14,6 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 const MapView = ({ lat, lng }) => {
-  console.log({ lat, lng });
   if (!lat || !lng) return null;
 
   return (

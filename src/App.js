@@ -11,8 +11,10 @@ function App() {
     <div className="App">
       <FormInput updateResult={setResult} />
 
-      <ResultCard result={result} />
-      <MapView lat={result?.location?.lat} lng={result?.location?.lng} />
+      <div style={{ position: "relative" }}>
+        <ResultCard result={result} />
+        <MapView lat={result?.location?.lat} lng={result?.location?.lng} />
+      </div>
     </div>
   );
 }

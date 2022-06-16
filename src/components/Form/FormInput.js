@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import iconarrow from "../../assets/images/icon-arrow.svg";
 import classes from "./FormInput.module.css";
 
@@ -13,36 +13,40 @@ const ipLink = async (ipAddress) => {
 const FormInput = ({ updateResult }) => {
   const [input, setInput] = useState("");
 
-  const formInputHandler = (event) => {
-    setInput(event.target.value);
-  };
-  const onClick = async (e) => {
+  const handleInputChange = (event) => setInput(event.target.value);
+
+  const fetchData = async () => {
     try {
-      e.preventDefault();
-      // if (input) {
       const data = await ipLink(input);
-      console.log(data);
       updateResult(data);
-      // }
     } catch (error) {
       updateResult({});
-      console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    fetchData();
+  };
+
   return (
     <div className={classes.formcontainer}>
       <h2 className={classes.h2}>IP Address Tracker</h2>
 
-      <form className={classes.form}>
+      <form className={classes.form} onSubmit={onSubmit}>
         <input
           className={classes.input}
           type="text"
           placeholder="Search for any IP address or domain"
           id="btn"
-          onChange={formInputHandler}
+          onChange={handleInputChange}
           value={input}
         />
-        <button className={classes.button} onClick={onClick}>
+        <button className={classes.button} onClick={onSubmit}>
           <img src={iconarrow} alt="arrowicon" />
         </button>
       </form>

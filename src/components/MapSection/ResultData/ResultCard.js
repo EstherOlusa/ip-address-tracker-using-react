@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./ResultCard.module.css";
 
 const ResultCard = ({ result }) => {
-  console.log(result);
   return (
     <div className={classes.card}>
       <div className={classes.cardtext}>
